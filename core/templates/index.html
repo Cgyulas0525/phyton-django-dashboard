@@ -1,0 +1,120 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Vezérlőpult {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} sidebar-mini {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+    {% include 'sajat/index_css.html' %}
+    {% include 'sajat/datatables_css.html' %}
+
+    <link rel="stylesheet" href="/static/assets/css/index.css">
+    <link rel="stylesheet" href="/static/assets/css/highcharts.css">
+
+    <style>
+
+        .float-right{
+            font-family: Palatino, URW Palladio L, serif !important;
+            font-weight: bold !important;
+            font-size: 20px !important;
+        }
+
+        .card-title{
+            font-family: Palatino, URW Palladio L, serif !important;
+            font-weight: bold !important;
+            font-size: 20px !important;
+        }
+
+        .nav-link{
+            font-family: Palatino, URW Palladio L, serif !important;
+            font-weight: bold !important;
+            font-size: 20px !important;
+        }
+
+        #header1 {
+             background: url('static/assets/img/theme/MentesHetes_106.png') center center;
+             background-repeat: no-repeat;
+             background-size: 100% 105px;
+             height: 105px;
+        }
+
+        #header2 {
+             background: url('static/assets/img/product/szendvics-pékáru/zsemle.jpg') center center;
+             background-repeat: no-repeat;
+             background-size: 100% 105px;
+             height: 105px;
+        }
+
+        #header3 {
+             background: url('static/assets/img/brand/bolt.png') center center;
+             background-repeat: no-repeat;
+             background-size: 100% 105px;
+             height: 105px;
+        }
+    </style>
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="content-wrapper" style="background-color: white;">
+
+    {% include 'sajat/vezerlopult_fej.html' %}
+    {% include 'sajat/vezerlopult_elso.html' %}
+    <!-- /.content -->
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    {% include 'sajat/index_js.html' %}
+    {% include 'sajat/datatables_js.html' %}
+    {% include 'sajat/highcharts_js.html' %}
+
+    <script src="/static/assets/js/hcc.js"></script>
+    <script src="/static/assets/js/hscolumn.js"></script>
+    <script src="/static/assets/js/hspielegend.js"></script>
+    <script src="/static/assets/js/hsarea.js"></script>
+    <script src="/static/assets/js/hccarea.js"></script>
+    <script src="/static/assets/js/hsline.js"></script>
+    <script src="/static/assets/js/combinatedClick.js"></script>
+    <script src="/static/assets/js/jarulektipus.js"></script>
+    <script src="/static/assets/js/chartupdate.js"></script>
+
+    <script src="/static/assets/js/dt.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            var table = $('#example').dataTable( {
+            } );
+        } );
+
+
+        var kat = {{ categories|safe }}
+        var dat = {{ data }}
+
+        var katHonap = {{ categoriesHonap|safe }}
+        var datHonap = {{ dataHonap }}
+
+        function LineChartData(data, mi){
+            chartdata = [];
+            cdata = [];
+            for (i = 0; i < data.length; i++){
+                cdata.push(parseInt(data[i]));
+            }
+            chartdata.push({name: mi, data: cdata});
+            return chartdata;
+        }
+
+        var chart_hetikotes = highchartLine( 'evhetKoltseg', 'line', 400, kat, LineChartData(dat, ''), 'Költségek', 'heti bontás', 'forint');
+        var chart_havikotes = highchartLine( 'evhonapKoltseg', 'line', 400, katHonap, LineChartData(datHonap, ''), 'Költségek', 'havi bontás', 'forint');
+    </script>
+
+{% endblock javascripts %}

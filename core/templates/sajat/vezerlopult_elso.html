@@ -1,0 +1,86 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-lg-4 col-md-8 col-xs-12">
+                <!-- small box -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header" id="header1">
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a href="#" class="nav-link">Partnerek összesen<span class="float-right badge bg-blue"> {{partnerek}} db </span></a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">2020 Költség <span class="float-right badge bg-aqua"> {{koltseg}} Ft</span></a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">2020 Árbevétel <span class="float-right badge bg-green"> {{arbevetel}} Ft</span></a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">2020 Egyenleg <span class="float-right badge bg-red"> {{egyenleg}} Ft</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12">
+                <!-- small box -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header" id="header2">
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a href="#" class="nav-link">Termék főcsoport <span class="float-right badge bg-aqua">{{tfocsoport}} db</span></a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Termék csoport <span class="float-right badge bg-green">{{tcsoport}} db</span></a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Termékek összesen <span class="float-right badge bg-blue">{{termekek}} db </span></a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Vegán termékek <span class="float-right badge bg-red"> 0 db</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12">
+                <!-- small box -->
+                <div class="box box-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header" id="header3"></div>
+                </div>
+                <div class="card-footer p-0">
+                    <h3 class="m-t-0" style="text-align: center;margin-top: 2px">Vác Piac 7 számú üzlet</h3>
+                    <h3 class="m-t-0">Nyitva tartás:</h3>
+                    <h3 class="m-t-0">Hétfő - Péntek: 7.00 - 16.00</h3>
+                    <h3 class="m-t-0">Szombat: 7.00 - 13.00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <img src="/static/assets/img/menu/ktgfocsoport_25.png">
+                            Az elmúlt 12 hét költség alalkulsása
+                        </h3>
+                        <div class="card-tools">
+                            <ul class="nav nav-pills ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#revenue-chart" data-toggle="tab"> heti</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#sales-chart" data-toggle="tab"> havi</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content p-0">
+                            <!-- Morris chart - Sales -->
+                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 400px;">
+                                <figure class="highcharts-figure">
+                                    <div id="evhetKoltseg"></div>
+                                </figure>
+                            </div>
+                            <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 400px;">
+                                <figure class="highcharts-figure">
+                                    <div id="evhonapKoltseg"></div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+            </div>
+        </div>

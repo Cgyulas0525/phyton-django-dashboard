@@ -1,0 +1,80 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Típus {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} sidebar-mini {% endblock body_class %}
+
+{% block stylesheets %}
+
+{% include 'sajat/index_css.html' %}
+{% include 'sajat/datatables_css.html' %}
+
+<link rel="stylesheet" href="/static/assets/css/index.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="content-wrapper" style="background-color: white;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Típus</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Főoldal</a></li>
+                        <li class="breadcrumb-item active">Típus</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" >
+                        <div class="card-body">
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <!-- small box -->
+                                <div class="box box-widget widget-user-2" >
+                                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                                    <div class="card-footer p-0"   style="background-color: white;">
+
+                                        <form action="" method="POST" autocomplete="off">
+                                            {% csrf_token %}
+                                            {{form.nev|as_crispy_field}}
+                                            {{form.leiras|as_crispy_field}}
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fa fa-database" aria-hidden="true"></i> Rendben</button>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="{% url 'tipus' %}" class="btn btn-secondary btn-block btn-lg">
+                                                        <i class="fas fa-stream"></i> Vissza a listához</a>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+</div>
+{% endblock content %}
